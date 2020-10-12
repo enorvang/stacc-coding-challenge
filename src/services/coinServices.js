@@ -28,4 +28,4 @@ const getCoinHistory = async (id, date) => {
 
 
 
-export default { pingServer, getCoin, getAllCoinsForCurrency };
+export default { pingServer, getCoin, getAllCoinsForCurrency, getCoinHistory };
