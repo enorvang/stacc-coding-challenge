@@ -119,14 +119,16 @@ const App = () => {
 
   return (
     <div>
-      <h1>Stacc Coding Challenge</h1>
-      <h2>My Cryptocurrency accounts</h2>
-      <HistoricPrices
-        onDateChange={handleDateChange}
-        selectedDate={date}
-        historicValue={historicAccountValue}
-      />
-      <AccountBalance total={totalAccountValue} />
+      <div style={{padding: "15px"}}>
+        <h1>Stacc Coding Challenge</h1>
+        <h2>My Cryptocurrency accounts</h2>
+        <HistoricPrices
+          onDateChange={handleDateChange}
+          selectedDate={date}
+          historicValue={historicAccountValue}
+        />
+        <AccountBalance total={totalAccountValue} />
+      </div>
       <CustomTable accounts={modifiedAccs} />
     </div>
   );
