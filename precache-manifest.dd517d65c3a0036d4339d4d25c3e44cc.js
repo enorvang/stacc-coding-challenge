@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5db291f9c041ad975cef371534e356af",
+    "revision": "c8ba50b14255d12a630921521d9257be",
     "url": "/stacc-coding-challenge/index.html"
   },
   {
