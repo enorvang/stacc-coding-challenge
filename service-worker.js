@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/stacc-coding-challenge/precache-manifest.3e96cf07f9cd3fbe8f667a4701087bf7.js"
+  "/stacc-coding-challenge/precache-manifest.cdd3a2adf266a7d0967cb6fad96f4dc8.js"
 );
 
 self.addEventListener('message', (event) => {
