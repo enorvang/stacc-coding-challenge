@@ -2,9 +2,6 @@ import React from "react";
 import { Table } from "antd";
 import "antd/dist/antd.css";
 
-const defaultSort = (a, b) => a-b;
-
-
 const columns = [
   {
     title: "Name",

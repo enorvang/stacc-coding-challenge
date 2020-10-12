@@ -38,8 +38,8 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    setModifiedAccs(modifyAccounts())
-  })
+    setModifiedAccs(modifyAccounts());
+  });
 
   /**
    * Modifies the accounts array by converting currency and adding some extra info.
@@ -54,6 +54,7 @@ const App = () => {
     let commonCoins = coins
       .filter((coin) => accountCurrencies.includes(coin.symbol))
       .sort((a, b) => a.symbol.localeCompare(b.symbol));
+
 
     let modifiedAccounts = accounts;
     //sort all accounts.
@@ -71,19 +72,23 @@ const App = () => {
         Number(modifiedAccounts[i].balance.amount) *
         commonCoins[i].current_price;
 
+      total = total + converted;
+
       modifiedAccounts[i].convertedBalance = converted.toFixed(2);
 
-      total = total + converted;
       //Also moving out the balance.amount field so that antDesign table kan read it.
       modifiedAccounts[i].balanceAmount = modifiedAccounts[i].balance.amount;
 
       //adding market cap fields
       modifiedAccounts[i].marketCap = commonCoins[i].market_cap;
       modifiedAccounts[i].marketCapRank = commonCoins[i].market_cap_rank;
+
+      //adding the id from commonCoins for use with gecko API to fetch history
+      modifiedAccounts[i].coinId = commonCoins[i].id;
+  
     }
 
     setTotalAccountValue(total.toFixed(2));
-
 
     //return an array sorted on the converted currency
     return modifiedAccounts;
@@ -92,6 +97,7 @@ const App = () => {
   const onDateChange = (date, dateString) => {
     setDate(dateString);
     getHistoryForCoin("bitcoin", dateString);
+    console.log(modifiedAccs);
   };
 
   const getHistoryForCoin = (id, date) => {
