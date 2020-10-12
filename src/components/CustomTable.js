@@ -2,6 +2,11 @@ import React from "react";
 import { Table } from "antd";
 import "antd/dist/antd.css";
 
+const formatter = new Intl.NumberFormat('no-NO', {
+  style: 'currency',
+  currency: 'NOK',
+});
+
 const columns = [
   {
     title: "Name",
@@ -25,7 +30,10 @@ const columns = [
       compare: (a, b) => a.convertedBalance - b.convertedBalance,
       multiple: 1,
     },
-    defaultSortOrder: "descend"
+    defaultSortOrder: "descend",
+    render: convertedBalance => (
+      <p>{formatter.format(convertedBalance)}</p>
+    )
   },
   {
     title: "Market Cap",
@@ -35,6 +43,9 @@ const columns = [
       compare: (a, b) => a.marketCap - b.marketCap,
       multiple: 3,
     },
+    render: marketCap => (
+      <p>{formatter.format(marketCap)}</p>
+    )
   },
   {
     title: "Market Cap Rank",
@@ -59,6 +70,9 @@ const CustomTable = ({ accounts }) => {
       dataSource={accounts}
       columns={columns}
       rowKey={(account) => account.id}
+      expandable={{
+        expandedRowRender: account => <p style={{margin: 0}}>Coin ID: {account.coinId} <br/> Wallet id: {account.id} <br/> Created: {account.created_at}</p>
+      }}
       
     />
   );

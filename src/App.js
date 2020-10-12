@@ -5,6 +5,11 @@ import CustomTable from "./components/CustomTable";
 import AccountBalance from "./components/AccountBalance";
 import HistoricPrices from "./components/HistoricPrices";
 
+const formatter = new Intl.NumberFormat('no-NO', {
+  style: 'currency',
+  currency: 'NOK',
+});
+
 const App = () => {
   const [accounts, setAccounts] = useState([]);
   const [coins, setCoins] = useState([]);
@@ -37,6 +42,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    
     setModifiedAccs(modifyAccounts());
   });
 
@@ -70,9 +76,9 @@ const App = () => {
         Number(modifiedAccounts[i].balance.amount) *
         commonCoins[i].current_price;
 
-      total = total + converted;
-
       modifiedAccounts[i].convertedBalance = converted.toFixed(2);
+
+      total += converted;
 
       //Also moving out the balance.amount field so that antDesign table kan read it.
       modifiedAccounts[i].balanceAmount = modifiedAccounts[i].balance.amount;
@@ -85,13 +91,14 @@ const App = () => {
       modifiedAccounts[i].coinId = commonCoins[i].id;
     }
 
-    setTotalAccountValue(total.toFixed(2));
+    setTotalAccountValue(formatter.format(total));
 
     //return an array sorted on the converted currency
     return modifiedAccounts;
   };
 
   const handleDateChange = (date, dateString) => {
+    console.log(date, dateString)
     setDate(dateString);
     totalHistory(dateString);
   };
@@ -108,7 +115,7 @@ const App = () => {
               response.market_data.current_price.nok *
               modifiedAccs[i].balanceAmount;
             total = total + nokValue;
-            setHistoricAccountValue(total.toFixed(2));
+            setHistoricAccountValue(formatter.format(total));
           })
           .catch((error) => console.log(error));
       }
