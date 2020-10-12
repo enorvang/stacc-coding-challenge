@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/stacc-coding-challenge/static/css/main.69eda509.chunk.css",
-    "main.js": "/stacc-coding-challenge/static/js/main.76cb5863.chunk.js",
-    "main.js.map": "/stacc-coding-challenge/static/js/main.76cb5863.chunk.js.map",
+    "main.js": "/stacc-coding-challenge/static/js/main.9b9eaf5d.chunk.js",
+    "main.js.map": "/stacc-coding-challenge/static/js/main.9b9eaf5d.chunk.js.map",
     "runtime-main.js": "/stacc-coding-challenge/static/js/runtime-main.e1640626.js",
     "runtime-main.js.map": "/stacc-coding-challenge/static/js/runtime-main.e1640626.js.map",
     "static/css/2.220ccb42.chunk.css": "/stacc-coding-challenge/static/css/2.220ccb42.chunk.css",
     "static/js/2.73b8bfda.chunk.js": "/stacc-coding-challenge/static/js/2.73b8bfda.chunk.js",
     "static/js/2.73b8bfda.chunk.js.map": "/stacc-coding-challenge/static/js/2.73b8bfda.chunk.js.map",
     "index.html": "/stacc-coding-challenge/index.html",
-    "precache-manifest.2fe6de9a9d1077be324369b677fa895e.js": "/stacc-coding-challenge/precache-manifest.2fe6de9a9d1077be324369b677fa895e.js",
+    "precache-manifest.4295a33b5afee178783e4b8d82355c67.js": "/stacc-coding-challenge/precache-manifest.4295a33b5afee178783e4b8d82355c67.js",
     "service-worker.js": "/stacc-coding-challenge/service-worker.js",
     "static/css/2.220ccb42.chunk.css.map": "/stacc-coding-challenge/static/css/2.220ccb42.chunk.css.map",
     "static/css/main.69eda509.chunk.css.map": "/stacc-coding-challenge/static/css/main.69eda509.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.220ccb42.chunk.css",
     "static/js/2.73b8bfda.chunk.js",
     "static/css/main.69eda509.chunk.css",
-    "static/js/main.76cb5863.chunk.js"
+    "static/js/main.9b9eaf5d.chunk.js"
   ]
 }
