@@ -41,13 +41,16 @@ const App = () => {
       .catch((error) => console.log(error));
   }, []);
 
+  /**
+   * Sets the modified accounts after we have fetched from API's
+   */
   useEffect(() => {
-    
     setModifiedAccs(modifyAccounts());
   });
 
   /**
    * Modifies the accounts array by converting currency and adding some extra info.
+   * This could probably be prettier!
    */
   const modifyAccounts = () => {
     //get all currencies in accounts.
@@ -97,12 +100,20 @@ const App = () => {
     return modifiedAccounts;
   };
 
+  /**
+   * Callback that is run whenever a date is picked
+   * @param {Object} date 
+   * @param {String} dateString 
+   */
   const handleDateChange = (date, dateString) => {
-    console.log(date, dateString)
     setDate(dateString);
     totalHistory(dateString);
   };
 
+
+  /**
+   * Function that iterates through all accounts and fetches historic data given a date
+   */
   const totalHistory = (date) => {
     let total = 0;
 
