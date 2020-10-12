@@ -17,7 +17,7 @@ const columns = [
     key: "balanceAmount",
     sorter: {
       compare: (a, b) => a.balanceAmount - b.balanceAmount,
-      multiple: 2,
+      multiple: 3,
     },
   },
   {
@@ -26,8 +26,9 @@ const columns = [
     key: "convertedBalance",
     sorter: {
       compare: (a, b) => a.convertedBalance - b.convertedBalance,
-      multiple: 1,
+      multiple: 4,
     },
+    defaultSortOrder: "descend"
   },
   {
     title: "Market Cap",
@@ -35,7 +36,7 @@ const columns = [
     key: "marketCap",
     sorter: {
       compare: (a, b) => a.marketCap - b.marketCap,
-      multiple: 3,
+      multiple: 2,
     },
   },
   {
@@ -44,7 +45,7 @@ const columns = [
     key: "marketCapRank",
     sorter: {
       compare: (a, b) => a.marketCapRank - b.marketCapRank,
-      multiple: 4,
+      multiple: 1,
     },
      
   },
