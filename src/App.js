@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import accountService from "./services/accountServices";
 import coinService from "./services/coinServices";
-import "./App.css";
 import CustomTable from "./components/CustomTable";
 
 const App = () => {
