@@ -3,9 +3,7 @@ import accountService from "./services/accountServices";
 import coinService from "./services/coinServices";
 import CustomTable from "./components/CustomTable";
 import AccountBalance from "./components/AccountBalance";
-import { DatePicker } from "antd";
-
-const dateFormat = "DD-MM-YYYY";
+import HistoricPrices from "./components/HistoricPrices";
 
 const App = () => {
   const [accounts, setAccounts] = useState([]);
@@ -13,6 +11,7 @@ const App = () => {
   const [date, setDate] = useState("");
   const [totalAccountValue, setTotalAccountValue] = useState(0);
   const [modifiedAccs, setModifiedAccs] = useState([]);
+  const [historicAccountValue, setHistoricAccountValue] = useState(0);
 
   /**
    * Fetches all accounts
@@ -55,7 +54,6 @@ const App = () => {
       .filter((coin) => accountCurrencies.includes(coin.symbol))
       .sort((a, b) => a.symbol.localeCompare(b.symbol));
 
-
     let modifiedAccounts = accounts;
     //sort all accounts.
     modifiedAccounts.sort((a, b) =>
@@ -85,7 +83,6 @@ const App = () => {
 
       //adding the id from commonCoins for use with gecko API to fetch history
       modifiedAccounts[i].coinId = commonCoins[i].id;
-  
     }
 
     setTotalAccountValue(total.toFixed(2));
@@ -94,27 +91,41 @@ const App = () => {
     return modifiedAccounts;
   };
 
-  const onDateChange = (date, dateString) => {
+  const handleDateChange = (date, dateString) => {
     setDate(dateString);
-    getHistoryForCoin("bitcoin", dateString);
-    console.log(modifiedAccs);
+    totalHistory(dateString);
   };
 
-  const getHistoryForCoin = (id, date) => {
-    coinService
-      .getCoinHistory(id, date)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => console.log(error));
+  const totalHistory = (date) => {
+    let total = 0;
+
+    if (date) {
+      for (let i = 0; i < modifiedAccs.length; i++) {
+        coinService
+          .getCoinHistory(modifiedAccs[i].coinId, date)
+          .then((response) => {
+            let nokValue =
+              response.market_data.current_price.nok *
+              modifiedAccs[i].balanceAmount;
+            total = total + nokValue;
+            setHistoricAccountValue(total.toFixed(2));
+          })
+          .catch((error) => console.log(error));
+      }
+    } else {
+      console.log("cleared date");
+    }
   };
 
   return (
     <div>
       <h1>Stacc Coding Challenge</h1>
       <h2>My Cryptocurrency accounts</h2>
-      <p>Selected date: {date.toString()}</p>
-      <DatePicker format={dateFormat} onChange={onDateChange} />
+      <HistoricPrices
+        onDateChange={handleDateChange}
+        selectedDate={date}
+        historicValue={historicAccountValue}
+      />
       <AccountBalance total={totalAccountValue} />
       <CustomTable accounts={modifiedAccs} />
     </div>

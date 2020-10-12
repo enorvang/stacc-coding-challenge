@@ -5,7 +5,7 @@ const AccountBalance = ({total}) => {
 
   return (
     <div>
-      <h3>Total account value: {total} NOK</h3>
+      <h3>Current total value: {total} NOK</h3>
     </div>
   )
 }
