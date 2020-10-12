@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0825c67ff77b78d672bc28c55d7bfaae",
+    "revision": "abc985ab13f201a7fd1e29274c5f21c4",
     "url": "/stacc-coding-challenge/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/stacc-coding-challenge/static/css/2.220ccb42.chunk.css"
   },
   {
-    "revision": "f7e32967b1bb0c9e9fec",
+    "revision": "c2c5fe3b38e3d4e213b1",
     "url": "/stacc-coding-challenge/static/css/main.69eda509.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/stacc-coding-challenge/static/js/2.73b8bfda.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f7e32967b1bb0c9e9fec",
-    "url": "/stacc-coding-challenge/static/js/main.eeab89c5.chunk.js"
+    "revision": "c2c5fe3b38e3d4e213b1",
+    "url": "/stacc-coding-challenge/static/js/main.0726f6aa.chunk.js"
   },
   {
     "revision": "f48ed90ef6c57af09ae9",
