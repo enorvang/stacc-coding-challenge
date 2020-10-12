@@ -6,7 +6,7 @@ const token =
 
 const instance = axios.create({
   baseURL: baseUrl,
-  timeout: 3000, //if request takes longer than 3 seconds, don't complete it.
+  timeout: 5000, //if request takes longer, don't complete it.
   headers: { "Authorization" : `Bearer ${token}`},
 });
 
@@ -14,25 +14,5 @@ const getAll = async () => {
   const response = await instance.get("/accounts");
   return response.data;
 };
-/*
-const getAll = () => {
-  const request = axios.get(baseUrl);
-  return request.then((response) => response.data);
-};
 
-const create = (newObject) => {
-  const request = axios.post(baseUrl, newObject);
-  return request.then((response) => response.data);
-};
-
-const update = (id, newObject) => {
-  const request = axios.put(`${baseUrl}/${id}`, newObject);
-  return request.then((response) => response.data);
-};
-
-const deleteEntry = (id) => {
-  const request = axios.delete(`${baseUrl}/${id}`);
-  return request.then((response) => response.data);
-};
-*/
 export default { getAll };
